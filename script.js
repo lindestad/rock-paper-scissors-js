@@ -31,10 +31,29 @@ function playRound(playerSelection, computerSelection) {
     else {
         match_result = "Computer won!";
     }
+    console.log("Human: "+playerSelection+"\nComputer: "+computerSelection+"\n"+match_result);
     return match_result;
   }
 
-let human = getPlayerChoice();
-let comput = getComputerChoice();
-console.log("Human: "+human+"\nComputer: "+comput);
-console.log(playRound(human,comput));
+function playGame() {
+    let score = [0,0] // [player, computer]
+    for (let i = 0; i < 5; i++) {
+        console.log("Round "+(i+1)+":");
+        let round_result = playRound(getPlayerChoice(), getComputerChoice());
+        if (round_result === "Player won!") {
+            score[0]++;
+        }
+        else if (round_result === "Computer won!") {
+            score[1]++;
+        }
+        else if (round_result === "You tied!") {
+            score[0]++; score[1]++;
+        }
+        else {  // Throw error
+            throw new Error("Invalid result from playRound().")
+        }
+        console.log("Score: Player - "+score[0]+"    -    "+score[1]+" - computer.")
+    }
+}
+
+playGame();
