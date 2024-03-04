@@ -19,7 +19,7 @@ function playRound(playerSelection, computerSelection) {
         match_result = "You tied!";
     }
     // check if the computers selection maps to the losing match with the player
-    else if (computerSelection === win_map[playerSelection]) {
+    else if (win_map.get(playerSelection) === computerSelection) {
         match_result = "Player won!";
     }
     else {
@@ -28,3 +28,7 @@ function playRound(playerSelection, computerSelection) {
     return match_result;
   }
 
+let human = getPlayerChoice();
+let comput = getComputerChoice();
+console.log("Human: "+human+"\nComputer: "+comput);
+console.log(playRound(human,comput));
