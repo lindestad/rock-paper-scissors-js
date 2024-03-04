@@ -4,7 +4,13 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    const choice = "Rock";
+    let choice;
+    let valid_coices = ["Rock", "Paper", "Scissors"];
+    choice = prompt("Playing Rock, Paper, Scissors.\nEnter your choice:",);
+    if (!(valid_coices.includes(choice))) {
+        alert('Invalid input, you must enter either "Rock", "Paper", or "Scissors". Try again.');
+        choice = getPlayerChoice();
+    }
     return choice;
 }
 
