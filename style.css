@@ -12,6 +12,7 @@ body {
 
 #score-container {
     display: flex;
+    flex-direction: column;
     height: 150px;
     justify-content: center;
     align-items: center;
@@ -19,6 +20,10 @@ body {
 
 #score {
     font-size: 24px;
+}
+
+#play-history {
+    font-size: 18px;
 }
 
 #button-container {

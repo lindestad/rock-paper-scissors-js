@@ -6,34 +6,28 @@ function getComputerChoice() {
 let score = [0, 0]; // [player, computer]
 
 function playRound(playerSelection, computerSelection) {
-  let match_result = "";
   const win_map = new Map();
   win_map.set("Rock", "Scissors");
   win_map.set("Scissors", "Paper");
   win_map.set("Paper", "Rock");
 
   if (playerSelection === computerSelection) {
-    match_result = "You tied!";
     score[0]++;
     score[1]++;
   }
   // check if the computers selection maps to the losing match with the player
   else if (win_map.get(playerSelection) === computerSelection) {
-    match_result = "Player won!";
     score[0]++;
   } else {
-    match_result = "Computer won!";
     score[1]++;
   }
-  console.log(
-    "Human: " +
-      playerSelection +
-      "\nComputer: " +
-      computerSelection +
-      "\n" +
-      match_result
-  );
-  return match_result;
+ 
+  const scoreDisplay = document.getElementById('score');
+  scoreDisplay.textContent = 'Score:\nYou: '+score[0]+' - Computer: '+score[1];
+
+  const playHistory = document.getElementById('play-history');
+  playHistory.textContent = 'You played '+playerSelection+'. The computer played '+computerSelection+'.';
+  return;
 }
 
 const rockBtn = document.createElement('button');
