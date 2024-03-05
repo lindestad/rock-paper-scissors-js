@@ -3,19 +3,6 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function getPlayerChoice() {
-  let choice;
-  let valid_coices = ["Rock", "Paper", "Scissors"];
-  choice = prompt("Playing Rock, Paper, Scissors.\nEnter your choice:");
-  if (!valid_coices.includes(choice)) {
-    alert(
-      'Invalid input, you must enter either "Rock", "Paper", or "Scissors". Try again.'
-    );
-    choice = getPlayerChoice();
-  }
-  return choice;
-}
-
 let score = [0, 0]; // [player, computer]
 
 function playRound(playerSelection, computerSelection) {
@@ -48,30 +35,6 @@ function playRound(playerSelection, computerSelection) {
   );
   return match_result;
 }
-
-function playGame() {
-  let score = [0, 0]; // [player, computer]
-  for (let i = 0; i < 5; i++) {
-    console.log("Round " + (i + 1) + ":");
-    let round_result = playRound(getPlayerChoice(), getComputerChoice());
-    if (round_result === "Player won!") {
-      score[0]++;
-    } else if (round_result === "Computer won!") {
-      score[1]++;
-    } else if (round_result === "You tied!") {
-      score[0]++;
-      score[1]++;
-    } else {
-      // Throw error
-      throw new Error("Invalid result from playRound().");
-    }
-    console.log(
-      "Score: Player - " + score[0] + "    -    " + score[1] + " - computer."
-    );
-  }
-}
-
-// playGame();
 
 const rockBtn = document.createElement('button');
 const paperBtn = document.createElement('button');
