@@ -79,3 +79,6 @@ buttonContainer.appendChild(rockBtn);
 buttonContainer.appendChild(paperBtn);
 buttonContainer.appendChild(scissorsBtn);
 
+rockBtn.addEventListener('click', () => {playRound("Rock", getComputerChoice())});
+paperBtn.addEventListener('click', () => {playRound("Paper", getComputerChoice())});
+scissorsBtn.addEventListener('click', () => {playRound("Scissors", getComputerChoice())});
