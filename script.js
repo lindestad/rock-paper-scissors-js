@@ -16,6 +16,8 @@ function getPlayerChoice() {
   return choice;
 }
 
+let score = [0, 0]; // [player, computer]
+
 function playRound(playerSelection, computerSelection) {
   let match_result = "";
   const win_map = new Map();
@@ -25,12 +27,16 @@ function playRound(playerSelection, computerSelection) {
 
   if (playerSelection === computerSelection) {
     match_result = "You tied!";
+    score[0]++;
+    score[1]++;
   }
   // check if the computers selection maps to the losing match with the player
   else if (win_map.get(playerSelection) === computerSelection) {
     match_result = "Player won!";
+    score[0]++;
   } else {
     match_result = "Computer won!";
+    score[1]++;
   }
   console.log(
     "Human: " +
