@@ -65,4 +65,17 @@ function playGame() {
   }
 }
 
-playGame();
+// playGame();
+
+const rockBtn = document.createElement('button');
+const paperBtn = document.createElement('button');
+const scissorsBtn = document.createElement('button');
+rockBtn.textContent = "Rock";
+paperBtn.textContent = "Paper";
+scissorsBtn.textContent = "Scissors";
+
+const buttonContainer = document.getElementById("button-container");
+buttonContainer.appendChild(rockBtn);
+buttonContainer.appendChild(paperBtn);
+buttonContainer.appendChild(scissorsBtn);
+
